@@ -1,0 +1,563 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: arial, sans-serif;
+	font-size: 12px;
+}
+html {
+	height:100%;
+	width:100%;
+	background-color: #BBDDDD; 
+	
+}
+body {
+    height:100%;
+    width:100%;
+}
+
+.Fliptable {
+	font-size: 12px;
+	position:absolute;
+	top: 0px;
+	left: 0px;
+}
+.Fliptable, .Fliptable th, .Fliptable td {
+	font-family: arial, sans-serif;
+	font-size: 12px;
+	background-color: #DDFFFF;
+	border-collapse: collapse;
+}
+.Fliptable th, .Fliptable td {
+	font-family: arial, sans-serif;
+	font-size: 12px;
+	padding: 2vw;
+}
+.hidden {
+	visibility: hidden;
+	left:-1000vw;
+	top:-1000vw;
+}
+@media (min-width: 720px) {
+	.Fliptable table {
+		margin: 2vw;
+	}
+	.Fliptable table, .Fliptable th, .Fliptable td {
+		width: 96vw;
+	}
+
+	.Fliptable th, .Fliptable td {
+		border: 2vw solid #CCEEEE;
+	}
+}
+@media not all and (min-width: 720px) {
+	.Fliptable {
+		margin: 4vw;
+	}
+	.Fliptable, .Fliptable th, .Fliptable td {
+		width: 92vw;
+	}
+
+	.Fliptable th, .Fliptable td {
+		border: 4vw solid #CCEEEE;
+	}
+}
+
+#Game {
+	
+}
+#GameCanvas {
+	position: absolute;
+    width:100%;
+    height:100%;
+}
+.GameGui {
+	font-family: Arial, Helvetica, sans-serif
+}
+#GameBlocker {
+	position: absolute;
+    height:100%;
+    width:100%;
+	background-color: rgba(0,0,0,0.7);
+}
+#GameGuiUndo {
+	font-size: 0;
+	position: absolute;
+	left: 0px;
+    top: 0px;
+	opacity: 1;
+}
+#GameGuiErrorCounter {
+	position: absolute;
+	right: 0px;
+    bottom: 0px;
+	opacity: 1;
+}
+#GameGuiTime {
+	position: absolute;
+	right: 0px;
+    top: 0px;
+	opacity: 1;
+}
+#GameGuiStepCounter {
+	position: absolute;
+	left: 0px;
+    bottom: 0px;
+	opacity: 1;
+}
+
+#Menu {
+	position: absolute;
+    background-color: #BBDDDD;
+}
+#MenuPlayButtons {
+	background-color: #CCEEEE;
+}
+#MenuChallangeButtons {
+	background-color: #CCEEEE;
+}
+#MenuMenuButton{
+	font-size: 0;
+	position: absolute;
+	left: 2px;
+    top: 2px;
+	opacity: 1;
+}
+#MenuGameButtons {
+	background-color: #CCEEEE;
+}
+#MenuExtraButtons {
+	background-color: #CCEEEE;
+}
+@media (min-width: 720px) {
+	.MenuPlayButton {
+		width: 20vw;
+		height: 20vw;
+	}
+	.MenuChallangeButton {
+		width: 44vw;
+		height: 20vw;
+	}
+	.MenuGameButton {
+		width: 20vw;
+		height: 20vw;
+	}
+	.MenuExtraButton {
+		width: 44vw;
+		height: 20vw;
+	}
+	#Menu {
+		height: 84vw;
+	}
+	#MenuPlayButtons {
+		position: absolute;
+		top: 2vw;
+		left: 2vw;
+		width: 96vw;
+		height: 24vw;
+	}
+	#MenuChallangeButtons {
+		position: absolute;
+		top: 30vw;
+		left: 2vw;
+		width: 96vw;
+		height: 24vw;
+	}
+	#MenuGameButtons {
+		position: absolute;
+		top: 58vw;
+		left: 2vw;
+		width: 96vw;
+		height: 24vw;
+	}
+	#MenuExtraButtons {
+		position: absolute;
+		top: 86vw;
+		left: 2vw;
+		width: 96vw;
+		height: 24vw;
+	}
+	#Menu-1 {
+		position: absolute;
+		top: 2vw;
+		left: 2vw;
+	}
+	#Menu-2 {
+		position: absolute;
+		top: 2vw;
+		left: 26vw;
+	}
+	#Menu-3 {
+		position: absolute;
+		top: 2vw;
+		left: 50vw;
+	}
+	#Menu-4 {
+		position: absolute;
+		top: 2vw;
+		left: 74vw;
+	}
+	#Menu-5 {
+		position: absolute;
+		top: 2vw;
+		left: 2vw;
+	}
+	#Menu-6 {
+		position: absolute;
+		top: 2vw;
+		left: 50vw;
+	}
+	#Menu-7 {
+		position: absolute;
+		top: 2vw;
+		left: 2vw;
+	}
+	#Menu-8 {
+		position: absolute;
+		top: 2vw;
+		left: 26vw;
+	}
+	#Menu-9 {
+		position: absolute;
+		top: 2vw;
+		left: 50vw;
+	}
+	#Menu-10 {
+		position: absolute;
+		top: 2vw;
+		left: 74vw;
+	}
+	#Menu-11 {
+		position: absolute;
+		top: 2vw;
+		left: 2vw;
+	}
+	#Menu-12 {
+		position: absolute;
+		top: 2vw;
+		left: 50vw;
+	}
+}
+@media (min-width: 368px) and (max-width: 719px) {
+	.MenuPlayButton {
+		width: 38vw;
+		height: 38vw;
+	}
+	.MenuChallangeButton {
+		width: 84vw;
+		height: 38vw;
+	}
+	.MenuGameButton {
+		width: 38vw;
+		height: 38vw;
+	}
+	.MenuExtraButton {
+		width: 84vw;
+		height: 38vw;
+	}
+	
+	#Menu {
+		height: 300vw;
+	}
+	#MenuPlayButtons {
+		position: absolute;
+		top: 4vw;
+		left: 4vw;
+		width: 92vw;
+		height: 92vw;
+	}
+	#MenuChallangeButtons {
+		position: absolute;
+		top: 104vw;
+		left: 4vw;
+		width: 92vw;
+		height: 92vw;
+	}
+	#MenuGameButtons {
+		position: absolute;
+		top: 204vw;
+		left: 4vw;
+		width: 92vw;
+		height: 92vw;
+	}
+	#MenuExtraButtons {
+		position: absolute;
+		top: 304vw;
+		left: 4vw;
+		width: 92vw;
+		height: 92vw;
+	}
+	#Menu-1 {
+		position: absolute;
+		top: 4vw;
+		left: 4vw;
+	}
+	#Menu-2 {
+		position: absolute;
+		top: 4vw;
+		left: 50vw;
+	}
+	#Menu-3 {
+		position: absolute;
+		top: 50vw;
+		left: 4vw;
+	}
+	#Menu-4 {
+		position: absolute;
+		top: 50vw;
+		left: 50vw;
+	}
+	#Menu-5 {
+		position: absolute;
+		top: 4vw;
+		left: 4vw;
+	}
+	#Menu-6 {
+		position: absolute;
+		top: 50vw;
+		left: 4vw;
+	}
+	#Menu-7 {
+		position: absolute;
+		top: 4vw;
+		left: 4vw;
+	}
+	#Menu-8 {
+		position: absolute;
+		top: 4vw;
+		left: 50vw;
+	}
+	#Menu-9 {
+		position: absolute;
+		top: 50vw;
+		left: 4vw;
+	}
+	#Menu-10 {
+		position: absolute;
+		top: 50vw;
+		left: 50vw;
+	}
+	#Menu-11 {
+		position: absolute;
+		top: 4vw;
+		left: 4vw;
+	}
+	#Menu-12 {
+		position: absolute;
+		top: 50vw;
+		left: 4vw;
+	}
+}
+@media not all and (min-width: 368px) {
+	.MenuPlayButton {
+		width: 84vw;
+		height: 16vw;
+	}
+	.MenuChallangeButton {
+		width: 84vw;
+		height: 16vw;
+	}
+	.MenuGameButton {
+		width: 84vw;
+		height: 16vw;
+	}
+	.MenuExtraButton {
+		width: 84vw;
+		height: 16vw;
+	}
+	
+	#Menu {
+		height: 228vw;
+	}
+	#MenuPlayButtons {
+		position: absolute;
+		top: 4vw;
+		left: 4vw;
+		width: 92vw;
+		height: 84vw;
+	}
+	#MenuChallangeButtons {
+		position: absolute;
+		top: 92vw;
+		left: 4vw;
+		width: 92vw;
+		height: 44vw;
+	}
+	#MenuGameButtons {
+		position: absolute;
+		top: 140vw;
+		left: 4vw;
+		width: 92vw;
+		height: 84vw;
+	}
+	#MenuExtraButtons {
+		position: absolute;
+		top: 228vw;
+		left: 4vw;
+		width: 92vw;
+		height: 44vw;
+	}
+	#Menu-1 {
+		position: absolute;
+		top: 4vw;
+		left: 4vw;
+	}
+	#Menu-2 {
+		position: absolute;
+		top: 24vw;
+		left: 4vw;
+	}
+	#Menu-3 {
+		position: absolute;
+		top: 44vw;
+		left: 4vw;
+	}
+	#Menu-4 {
+		position: absolute;
+		top: 64vw;
+		left: 4vw;
+	}
+	#Menu-5 {
+		position: absolute;
+		top: 4vw;
+		left: 4vw;
+	}
+	#Menu-6 {
+		position: absolute;
+		top: 24vw;
+		left: 4vw;
+	}
+	#Menu-7 {
+		position: absolute;
+		top: 4vw;
+		left: 4vw;
+	}
+	#Menu-8 {
+		position: absolute;
+		top: 24vw;
+		left: 4vw;
+	}
+	#Menu-9 {
+		position: absolute;
+		top: 44vw;
+		left: 4vw;
+	}
+	#Menu-10 {
+		position: absolute;
+		top: 64vw;
+		left: 4vw;
+	}
+	#Menu-11 {
+		position: absolute;
+		top: 4vw;
+		left: 4vw;
+	}
+	#Menu-12 {
+		position: absolute;
+		top: 24vw;
+		left: 4vw;
+	}
+}
+.MenuPlayButton {
+	display: block;
+	background-color: #DDFFFF;
+	color: #000000;
+	text-align: center;
+	cursor: pointer;
+	border: 0px;
+}
+.MenuPlayButton span:after {
+	content: '»';
+	opacity: 0;
+	transition: 0.5s;
+}
+.MenuPlayButton:hover span:after {
+	opacity: 1;
+	transition: 0.5s;
+}
+.MenuGameButton {
+	display: block;
+	background-color: #DDFFFF;
+	color: #000000;
+	text-align: center;
+	cursor: pointer;
+	border: 0px;
+}
+.MenuChallangeButton {
+	display: block;
+	background-color: #DDFFFF;
+	color: #000000;
+	text-align: center;
+	cursor: pointer;
+	border: 0px;
+}
+.MenuExtraButton {
+	display: block;
+	background-color: #DDFFFF;
+	color: #000000;
+	text-align: center;
+	cursor: pointer;
+	border: 0px;
+}
+
+#Menubar{
+	top:0px;
+	left:0px;
+	right:0px;
+	height:40px;
+	border-bottom: 1px solid;
+}
+
+.MenuContent:not(.hidden){
+	position: absolute;
+    top:40px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+}
+.MenuContent.hidden{
+	position: absolute;
+    top:-1000vw;
+	left:-1000vw;
+	right:1000vw;
+	bottom:1000vw;
+}
+
+.MenuContent2:not(.hidden){
+	position: absolute;
+    top:40px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+}
+.MenuContent2.hidden{
+	position: absolute;
+    top:-1000vw;
+	left:-1000vw;
+	right:1000vw;
+	bottom:1000vw;
+}
+
+
+#Statistics {
+	
+}
+
+#Achivemets {
+	
+}
+
+#HighScores {
+	
+}
+
+#Friend {
+	
+}
+
+#Settings {
+	
+}
+
+#Help {
+	 
+}

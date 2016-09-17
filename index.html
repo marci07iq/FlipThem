@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <!--
+            Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+            For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *">
+        <title>Flip Them</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+        <!-- FlipThem references -->
+        <link href="css/index.css" rel="stylesheet" />
+        <script src="scripts/jquery-3.1.0.min.js"></script>
+        <!--<script src="scripts/jquery.mobile-3.1.0.min.js"></script>-->
+		<script src="scripts/jquery.cookie.js"></script>
+		<script src="scripts/index.js"></script>
+        <script src="scripts/main.js"></script>
+    </head>
+    <body onload="MainInit();">
+		
+		<div id="Menubar">
+			<image src="images/Menu.png" id="GameGuiMenu" onclick="GamePause();"></image>
+			<input id="UserName" type="text" value="Name" style="float:right;">
+		</div>
+		
+		<div id="Menu" class="MenuContent2">
+			<div id="MenuPlayButtons">
+				<button class="MenuPlayButton" id="Menu-1" onclick="StartGame(1,2,1,3,1);">
+					<span>
+						Easy
+					</span>
+				</button>
+				<button class="MenuPlayButton" id="Menu-2" onclick="StartGame(2,2,2,4,2);">
+					<span>
+						Medium
+					</span>
+				</button>
+				<button class="MenuPlayButton" id="Menu-3" onclick="StartGame(3,3,3,5,3);">
+					<span>
+						Hard
+					</span>
+				</button>
+				<button class="MenuPlayButton" id="Menu-4" onclick="">
+					<span>
+						Custom
+				</span>
+				</button>
+			</div>
+			<div id="MenuChallangeButtons">
+				<button class="MenuChallangeButton" id="Menu-5" onclick="StartGame(-1,-1,-1,-1,5);">
+					Daily challange
+				</button>
+				<button class="MenuChallangeButton" id="Menu-6" onclick="StartGame(-1,-1,-1,-1,6);">
+						Weekly challange
+				</button>
+			</div>
+			<div id="MenuGameButtons">
+					<button class="MenuGameButton" id="Menu-7" onclick="StartStatistics();">
+					Statistics
+				</button>
+				<button class="MenuGameButton" id="Menu-8" onclick="StartAchivements();">
+					Achivements
+				</button>
+				<button class="MenuGameButton" id="Menu-9" onclick="StartHighScores();">
+					Daily High scores
+				</button>
+				<button class="MenuGameButton" id="Menu-10" onclick="StartFriends();">
+					Weekly High scores
+				</button>
+			</div>
+			<div id="MenuExtraButtons">
+				<button class="MenuExtraButton" id="Menu-11" onclick="StartHelp();">
+					Help
+				</button>
+				<button class="MenuExtraButton" id="Menu-12" onclick="StartSettings();">
+					Settings
+				</button>
+			</div>
+		</div>
+		<div id="Game" class="hidden MenuContent">
+			<canvas id="GameCanvas"></canvas>
+			
+			<div id="GameBlocker"></div>
+			
+			
+			<image src="images/Undo.png" id="GameGuiUndo" onclick="GameUndo();"></image>
+			
+			<div id="GameGuiTime" class="GameGui">
+				00:00
+			</div>
+			<div id="GameGuiErrorCounter" class="GameGui">
+				0
+			</div>
+			<div id="GameGuiStepCounter" class="GameGui">
+				0
+			</div>
+		</div>
+		<div id="Statistics" class="hidden MenuContent">
+			<table id="StatisticsTable" class="Fliptable">
+				<tr>
+					<th></th>
+					<th>Easy</th>
+					<th>Medium</th>
+					<th>Hard</th>
+				</tr>
+				<tr>
+					<td>Total Games</td>
+					<td>20</td>
+					<td>20</td>
+					<td>20</td>
+				</tr>
+				<tr>
+					<td>Total playtime</td>
+					<td>31:23:1</td>
+					<td>32:15:2</td>
+					<td>33:67:3</td>
+				</tr>
+				<tr>
+					<td>Total moves</td>
+					<td>958155</td>
+					<td>585815</td>
+					<td>784154</td>
+				</tr>
+				<tr>
+					<td>Speedrun</td>
+					<td>0:01</td>
+					<td>0:32</td>
+					<td>1:54</td>
+				</tr>
+				<tr>
+					<td>Minimum moves</td>
+					<td>6</td>
+					<td>58</td>
+					<td>157</td>
+				</tr>
+			</table>
+		</div>
+		<div id="Achivements" class="hidden MenuContent">
+			
+		</div>
+		<div id="HighScores" class="hidden MenuContent">
+			<table id="HighscoreTable1" class="Fliptable">
+			
+			</table>
+			
+		</div>
+		<div id="Friends" class="hidden MenuContent">
+			<table id="HighscoreTable2" class="Fliptable">
+			
+			</table>
+		</div>
+		<div id="Settings" class="hidden MenuContent">
+		
+		</div>
+		<div id="Help" class="hidden MenuContent">
+			<table id="HelpTable" style="text-align: left; width:100%;">
+				<tr><th style="border-bottom: 1px solid black; font-size:24px;">Flip Them</td></tr>
+				
+				<tr><td><image src="images/Piece.png"></image></td></tr>
+				<tr><td style="border-bottom: 1px solid black;">This is a piece, and it consists of 3 segments.</td></tr>
+				
+				<tr><td><image src="images/Pieces.png"></image></td></tr>
+				<tr><td style="border-bottom: 1px solid black;">These are two pieces, touching with two segments. These two segments form a segment pair.</td></tr>
+				
+				<tr><td><image src="images/Fliporder.png"></image></td></tr>
+				<tr><td>Clicking anywhere in a segment pair flips the two pieces, swapping their colours.</td></tr>
+				<tr><td style="border-bottom: 1px solid black;"><image src="images/Flipresult.png"></image></td></tr>
+				
+				<tr><td><image src="images/MPieces.png"></image></td></tr>
+				<tr><td style="border-bottom: 1px solid black;">The aim of the game is to get all segment pairs to match.</td></tr>
+			</table>
+		</div>
+
+        <!-- Cordova reference, this is added to your app when it's built. 
+        <script src="cordova.js"></script>
+        <script src="scripts/platformOverrides.js"></script>-->
+    </body>
+</html>	
